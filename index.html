@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.1.0">
+<meta name="generator" content="Hexo 6.2.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -158,6 +158,70 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.jzserver.com/2022/06/02/c-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%BA%93fruit%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://q1.qlogo.cn/g?b=qq&nk=564140977&s=640">
+      <meta itemprop="name" content="秋风">
+      <meta itemprop="description" content="醉里挑灯看剑，梦回吹角连营">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qiufeng">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/02/c-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%BA%93fruit%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">c++依赖注入库fruit使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-02 22:50:04 / Modified: 22:50:20" itemprop="dateCreated datePublished" datetime="2022-06-02T22:50:04+08:00">2022-06-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="c-依赖注入库-fruit-使用"><a href="#c-依赖注入库-fruit-使用" class="headerlink" title="c++ 依赖注入库 fruit 使用"></a>c++ 依赖注入库 fruit 使用</h1><h4 id="git-项目地址"><a href="#git-项目地址" class="headerlink" title="git 项目地址"></a>git 项目地址</h4><p><a target="_blank" rel="noopener" href="https://github.com/google/fruit.git">https://github.com/google/fruit.git</a></p>
+<h4 id="使用-vcpkg-安装库"><a href="#使用-vcpkg-安装库" class="headerlink" title="使用 vcpkg 安装库"></a>使用 vcpkg 安装库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vcpkg install fruit</span><br></pre></td></tr></table></figure>
+
+<h4 id="cmake-添加引用"><a href="#cmake-添加引用" class="headerlink" title="cmake 添加引用"></a>cmake 添加引用</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">link_directories</span>(<span class="string">&quot;/vcpkg/installed/x64-linux/lib&quot;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(main PRIVATE fruit)</span><br></pre></td></tr></table></figure>
+
+<h4 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fruit/fruit.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Writer</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">write</span><span class="params">(std::string s)</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WriterImpl</span> : <span class="keyword">public</span> Writer &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">	<span class="built_in">INJECT</span>(<span class="built_in">WriterImpl</span>()) = <span class="keyword">default</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">write</span><span class="params">(std::string s)</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">		std::cout &lt;&lt; s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">fruit::Component&lt;Writer&gt; <span class="title">getWriterComponent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> fruit::<span class="built_in">createComponent</span>().<span class="built_in">bind</span>&lt;Writer, WriterImpl&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Greeter</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">greet</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">GreeterImpl</span> : <span class="keyword">public</span> Greeter &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Writer* writer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">INJECT</span>(<span class="built_in">GreeterImpl</span>(Writer* writer))</span><br><span class="line">		: <span class="built_in">writer</span>(writer) &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">greet</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123;</span><br><span class="line">		writer-&gt;<span class="built_in">write</span>(<span class="string">&quot;Hello world!\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">fruit::Component&lt;Greeter&gt; <span class="title">getGreeterComponent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> fruit::<span class="built_in">createComponent</span>().<span class="built_in">install</span>(getWriterComponent).<span class="built_in">bind</span>&lt;Greeter, GreeterImpl&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">fruit::Injector&lt;Greeter&gt; <span class="title">injector</span><span class="params">(getGreeterComponent)</span></span>;</span><br><span class="line">	Greeter* greeter = injector.<span class="built_in">get</span>&lt;Greeter*&gt;();</span><br><span class="line">	greeter-&gt;<span class="built_in">greet</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -561,7 +625,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
