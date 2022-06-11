@@ -24,12 +24,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++依赖注入库fruit使用">
 <meta property="og:url" content="https://blog.jzserver.com/2022/06/02/c-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%BA%93fruit%E4%BD%BF%E7%94%A8/index.html">
-<meta property="og:site_name" content="qiufeng">
+<meta property="og:site_name" content="qiufeng-blog">
 <meta property="og:description" content="c++ 依赖注入库 fruit 使用git 项目地址https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;fruit.git 使用 vcpkg 安装库1vcpkg install fruit  cmake 添加引用12link_directories(&quot;&#x2F;vcpkg&#x2F;installed&#x2F;x64-linux&#x2F;lib&quot;)target_link_libraries(main PRIVA">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-02T14:50:04.000Z">
-<meta property="article:modified_time" content="2022-06-02T14:50:20.685Z">
+<meta property="article:modified_time" content="2022-06-11T03:22:45.099Z">
 <meta property="article:author" content="秋风">
+<meta property="article:tag" content="Cmake">
+<meta property="article:tag" content="fruit">
+<meta property="article:tag" content="依赖注入">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://blog.jzserver.com/2022/06/02/c-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%BA%93fruit%E4%BD%BF%E7%94%A8/">
@@ -45,7 +48,7 @@
   };
 </script>
 
-  <title>c++依赖注入库fruit使用 | qiufeng</title>
+  <title>c++依赖注入库fruit使用 | qiufeng-blog</title>
   
 
 
@@ -96,7 +99,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">qiufeng</h1>
+      <h1 class="site-title">qiufeng-blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -174,7 +177,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qiufeng">
+      <meta itemprop="name" content="qiufeng-blog">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -187,9 +190,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-06-02 22:50:04 / Modified: 22:50:20" itemprop="dateCreated datePublished" datetime="2022-06-02T22:50:04+08:00">2022-06-02</time>
+              <time title="Created: 2022-06-02 22:50:04" itemprop="dateCreated datePublished" datetime="2022-06-02T22:50:04+08:00">2022-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-11 11:22:45" itemprop="dateModified" datetime="2022-06-11T11:22:45+08:00">2022-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
             </span>
 
           
@@ -217,6 +235,11 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Cmake/" rel="tag"># Cmake</a>
+              <a href="/tags/fruit/" rel="tag"># fruit</a>
+              <a href="/tags/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/" rel="tag"># 依赖注入</a>
+          </div>
 
         
 
@@ -306,9 +329,17 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-      <div class="site-state-item site-state-tags">
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
