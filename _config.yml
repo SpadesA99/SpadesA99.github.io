@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: qiufeng
+title: qiufeng-blog
 subtitle: ''
 description: '醉里挑灯看剑，梦回吹角连营'
 keywords:
 author: 秋风
 language: en
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'

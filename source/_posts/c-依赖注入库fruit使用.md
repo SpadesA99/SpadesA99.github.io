@@ -1,7 +1,12 @@
 ---
 title: c++依赖注入库fruit使用
 date: 2022-06-02 22:50:04
+categories: 
+	- c++
 tags:
+	- Cmake
+	- fruit
+	- 依赖注入
 ---
 
 # c++ 依赖注入库 fruit 使用
