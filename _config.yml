@@ -104,4 +104,4 @@ theme: next
 deploy:
   type: git
   repo: git@github.com:SpadesA99/SpadesA99.github.io.git
-  branch: gh-pagez
+  branch: gh-page
