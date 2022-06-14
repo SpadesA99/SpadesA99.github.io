@@ -22,11 +22,12 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
-        run: npm install
+        run: yarn
       - name: Build
-        run: npm run build
+        run: yarn run clean
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACTIONSPRIKEY }}
+          github_token: ${{ secrets.deploy }}
           publish_dir: ./public
+          publish_branch: gh-page 
