@@ -8,15 +8,13 @@ categories:
 date: 2022-06-22 10:32:33
 ---
 
-
-
 ### go-zero 快速开发
 
 项目地址 https://github.com/zeromicro/go-zero.git
 
-这个微服务框架本身自带一个goctl的命令行工具，用于一部分代码生成，但是实际使用上来说，在api调用rpc服务的时候，一旦rpc的出参和入参数量太多，就会是一个相对麻烦的事情，所以还需要修改一下它自带的代码生成模板。
+这个微服务框架本身自带一个 goctl 的命令行工具，用于一部分代码生成，但是实际使用上来说，在 api 调用 rpc 服务的时候，一旦 rpc 的出参和入参数量太多，就会是一个相对麻烦的事情，所以还需要修改一下它自带的代码生成模板。
 
-##### goctl 版本1.3.5
+##### goctl 版本 1.3.5
 
 初始化模板命令，默认是没有这个文件夹的
 
@@ -73,7 +71,7 @@ func {{.HandlerName}}(svcCtx *svc.ServiceContext) http.HandlerFunc {
 					}
 				} else if n < len(resp) {
 					logx.Errorf("actual bytes: %d, written bytes: %d", len(resp), n)
-				}				
+				}
 			{{else}}httpx.Ok(w){{end}}
 		}
 	}
@@ -133,14 +131,14 @@ func (l *{{.logic}}) {{.function}}({{.request}}) {{.responseType}} {
 
 返回值类型统一为 []byte
 
-api定义参考
+api 定义参考
 
 ```go
 	@doc(
 		summary: "退出登录"
 	)
 	@handler Logout2Handler
-	post /hospital/logout2(LogoutReq) returns ([]byte);
+	post /logout(LogoutReq) returns ([]byte);
 ```
 
 代码实现
@@ -180,4 +178,4 @@ git clone https://github.com/SpadesA99/protobuf-go.git
 ./build.bat
 ```
 
-然后将 protoc-gen-go.exe 复制到 go bin目录
+然后将 protoc-gen-go.exe 复制到 go bin 目录
