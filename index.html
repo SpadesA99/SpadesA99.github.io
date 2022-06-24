@@ -162,6 +162,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://blog.jzserver.com/2022/06/24/win32%E6%97%A0%E9%9C%80%E6%B3%A8%E5%86%8C%E5%8A%A0%E8%BD%BDcom%E7%BB%84%E4%BB%B6%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="http://q1.qlogo.cn/g?b=qq&nk=564140977&s=640">
+      <meta itemprop="name" content="秋风">
+      <meta itemprop="description" content="醉里挑灯看剑，梦回吹角连营">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qiufeng-blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/24/win32%E6%97%A0%E9%9C%80%E6%B3%A8%E5%86%8C%E5%8A%A0%E8%BD%BDcom%E7%BB%84%E4%BB%B6%E5%BA%93/" class="post-title-link" itemprop="url">win32无需注册加载com组件库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-06-24 12:09:10 / Modified: 13:37:44" itemprop="dateCreated datePublished" datetime="2022-06-24T12:09:10+08:00">2022-06-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="win32无需注册加载com组件库"><a href="#win32无需注册加载com组件库" class="headerlink" title="win32无需注册加载com组件库"></a>win32无需注册加载com组件库</h3><h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>​	常规情况下win32 com组件都是需要注册到系统才能调用，实际上还有一种方法可以不进行注册直接加载 com组件。</p>
+<p>在vs安装目录下面的 DIA SDK 有一个函数 <code>NoRegCoCreate</code> 可以通过dll文件直接加载com组件库。</p>
+<p>函数原型</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">HRESULT STDMETHODCALLTYPE <span class="title">NoRegCoCreate</span><span class="params">(  <span class="type">const</span> <span class="type">__wchar_t</span> *dllName,</span></span></span><br><span class="line"><span class="params"><span class="function">                        REFCLSID   rclsid,</span></span></span><br><span class="line"><span class="params"><span class="function">                        REFIID     riid,</span></span></span><br><span class="line"><span class="params"><span class="function">                        <span class="type">void</span>     **ppv)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>头文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;dia2.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;diacreate.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> comment(lib, <span class="string">&quot;diaguids.lib&quot;</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>示例代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> IID IID_IWinHttpRequest = &#123; <span class="number">0x06f29373</span>,<span class="number">0x5c5a</span>,<span class="number">0x4b54</span>,&#123;<span class="number">0xb0</span>, <span class="number">0x25</span>, <span class="number">0x6e</span>, <span class="number">0xf1</span>, <span class="number">0xbf</span>, <span class="number">0x8a</span>, <span class="number">0xbf</span>, <span class="number">0x0e</span>&#125; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">TestWinHttp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//初始化com库</span></span><br><span class="line">	<span class="keyword">auto</span> hr = <span class="built_in">CoInitialize</span>(<span class="literal">NULL</span>);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">FAILED</span>(hr))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;[-] CoInitialize failed. code %X&quot;</span>, hr);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">defer</span>(<span class="built_in">CoUninitialize</span>(););</span><br><span class="line"></span><br><span class="line">	CLSID clsid;</span><br><span class="line">	hr = <span class="built_in">CLSIDFromProgID</span>(<span class="string">L&quot;WinHttp.WinHttpRequest.5.1&quot;</span>, &amp;clsid);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">FAILED</span>(hr))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;[-] CLSIDFromProgID failed. code %X&quot;</span>, hr);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	IWinHttpRequest* pIWinHttpRequest = <span class="literal">NULL</span>;</span><br><span class="line">	hr = <span class="built_in">NoRegCoCreate</span>(<span class="string">L&quot;C:\\Windows\\SysWOW64\\winhttpcom.dll&quot;</span>, clsid, IID_IWinHttpRequest, (<span class="type">void</span>**)&amp;pIWinHttpRequest);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">FAILED</span>(hr))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;[-] Create cominterface failed. code %X&quot;</span>, hr);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">defer</span>(<span class="keyword">if</span> (pIWinHttpRequest) &#123; pIWinHttpRequest-&gt;<span class="built_in">Release</span>(); &#125;);</span><br><span class="line"></span><br><span class="line">	VARIANT varFalse;</span><br><span class="line">	<span class="built_in">VariantInit</span>(&amp;varFalse);</span><br><span class="line">	<span class="built_in">V_VT</span>(&amp;varFalse) = VT_BOOL;</span><br><span class="line">	<span class="built_in">V_BOOL</span>(&amp;varFalse) = VARIANT_FALSE;</span><br><span class="line">	hr = pIWinHttpRequest-&gt;<span class="built_in">Open</span>(<span class="string">L&quot;GET&quot;</span>, <span class="string">&quot;https://www.baidu.com/&quot;</span>, varFalse);</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">FAILED</span>(hr))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;[-] pIWinHttpRequest-&gt;Open failed. code %X&quot;</span>, hr);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	VARIANT         varEmpty;</span><br><span class="line">	<span class="built_in">VariantInit</span>(&amp;varEmpty);</span><br><span class="line">	<span class="built_in">V_VT</span>(&amp;varEmpty) = VT_ERROR;</span><br><span class="line">	hr = pIWinHttpRequest-&gt;<span class="built_in">Send</span>(varEmpty);</span><br><span class="line">	BSTR bstrResponse = pIWinHttpRequest-&gt;<span class="built_in">GetResponseText</span>();</span><br><span class="line">	<span class="keyword">if</span> (bstrResponse)</span><br><span class="line">	&#123;</span><br><span class="line">		std::wstring body = bstrResponse;</span><br><span class="line">		std::wcout &lt;&lt; body.<span class="built_in">c_str</span>() &lt;&lt; std::endl;</span><br><span class="line">		<span class="built_in">SysFreeString</span>(bstrResponse);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://blog.jzserver.com/2022/06/22/go-zero-%E6%A8%A1%E6%9D%BF%E4%BF%AE%E6%94%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -824,7 +902,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -837,7 +915,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
