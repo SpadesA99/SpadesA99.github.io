@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: qiufeng-blog
+title: 听风吟
 subtitle: ""
 description: "醉里挑灯看剑，梦回吹角连营"
 keywords:
@@ -102,6 +102,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: git@github.com:SpadesA99/SpadesA99.github.io.git
-  branch: gh-page
+  type: 
+  repo: 
+  branch: 

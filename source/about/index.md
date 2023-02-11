@@ -1,10 +1,10 @@
 ---
-title: about
+title: 简介
 date: 2022-03-31 23:18:15
 type: about
 ---
 
-个人介绍：屌丝一枚，白天当保安，晚上写外挂，擅长 Windows 应用开发，windows 驱动开发，逆向工程，擅长写ShellCode, 擅长免杀，擅长 CVE 漏洞二次开发，擅长 Linux 服务开发，略懂 C++ Golang React 汇编等语言。
+个人介绍：屌丝一枚，白天当保安，晚上写外挂，擅长 Windows 应用开发，windows 驱动开发，逆向工程，擅长写 ShellCode, 擅长免杀，擅长 CVE 漏洞二次开发，擅长 Linux 服务开发，略懂 C++ Golang React 汇编等语言，网名的意思是，秋表示凄凉，风表示自由~
 
 **好的以上全是吹牛，请不要当真！！！**
 
